@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
+from decouple import config
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Church_website.urls'
@@ -124,6 +128,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'main/static') 
 ]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -142,3 +147,5 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'wahome4jeff@gmail.com'
 EMAIL_HOST_PASSWORD = 'vnwhvlhbzhhbpdlb'
 EMAIL_USE_TLS = True
+
+django_heroku.settings(locals())
