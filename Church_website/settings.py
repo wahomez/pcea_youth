@@ -31,6 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['pceakitengelayouth.up.railway.app']
 
+CSRF_TRUSTED_ORIGINS=['pceakitengelayouth.up.railway.app']
+
 # Application definition
 
 INSTALLED_APPS = [
