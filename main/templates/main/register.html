@@ -1,0 +1,56 @@
+{% extends 'main/header.html' %}
+{% block content%}
+<br>
+<div class="container">
+    <div class="card text-bg-light">
+        <h5 class="card-header"><center>Become a member form</center></h5>
+        <div class="card-body">
+            <form class="row g-3" method='POST'>
+              {%csrf_token%}
+                <div class="col-md-4">
+                  <label for="validationCustom01" class="form-label">First name</label>
+                  <input type="text" class="form-control" name="first_name"  required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom02" class="form-label">Last name</label>
+                  <input type="text" class="form-control" name="last_name" required>
+                </div>
+                <div class="col-md-3">
+                    <label for="validationCustom04" class="form-label">Gender</label>
+                    <select class="form-select" name="gender" required>
+                      <option selected disabled value="">Choose...</option>
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="validationCustom02" class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" name="number" required>
+                </div>
+                <div class="col-md-4">
+                  <label for="validationCustom03" class="form-label">Area</label>
+                  <input type="text" class="form-control" name='area' required>
+                </div>
+                <div class="col-md-3">
+                  <label for="validationCustom04" class="form-label">District</label>
+                  <select class="form-select" name='district' required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" name="confirmed" value={{id}}>
+                    <label class="form-check-label" for="invalidCheck">
+                      Are you a confirmed member of PCEA?
+                    </label>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-outline-primary" type="submit">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,177 @@
+{% extends 'main/header.html' %}
+{% block content%}
+{% load static%}
+
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="10000">
+      <img src="{% static "images/54cc032d-9575-4fc9-8265-13c66332fa05.jpeg" %}" style="height:700px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <a class="btn btn-outline-info" href="#" role="button">Read more</a>
+        {% comment %} <p>Some representative placeholder content for the first slide.</p> {% endcomment %}
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="20000">
+      <img src="{% static "images/47f87be2-2e28-4af8-b911-faeadd7959cd.jpeg" %}" style="height:700px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <a class="btn btn-outline-info" href="#" role="button">Read more</a>
+        {% comment %} <p>Some representative placeholder content for the second slide.</p> {% endcomment %}
+      </div>
+    </div>
+    <div class="carousel-item" data-bs-interval="30000">
+      <img src="{% static "images/54cc032d-9575-4fc9-8265-13c66332fa05.jpeg" %}" style="height:700px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <a class="btn btn-outline-info" href="#" role="button">Read more</a>
+        {% comment %} <p>Some representative placeholder content for the third slide.</p> {% endcomment %}
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<br>
+<div class="container">
+  <div class="row">
+  
+  
+    <div class="col s12 m6">
+      <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="tuesday-service">
+        <h6 class="text-center"><strong>Tuesday Programme</strong></h6>
+        <a href="/tuesday-service"><img src="{% static "images/Tuesday service.jpg" %}" class="img-fluid rounded-start" alt="...">
+        </a>
+        <div class="card-footer text-muted">
+          <center>Watch live by clicking the above</center> 
+        </div>
+      </div>
+    </div>
+   
+    <div class="col s12 m6">
+      <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="/sunday-service">
+        <h6 class="text-center"><strong>Sunday Programme</strong></h6>
+        <a href="https://www.youtube.com/watch?v=Ev16SuCnq1Y"><img src="{% static "images/SundayPG.jpg" %}" class="img-fluid rounded-start" alt="..."></a>
+        <div class="card-footer text-muted">
+          <center>Watch live by clicking the above</center> 
+        </div>
+      </div>
+    </div>
+   
+  </div>
+  <div class="row">
+    {% comment %} {%for message in Messages%} {% endcomment %}
+      <div class="col s12 m6">
+        <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="">
+          <h6 class="text-center"><strong>Reverend's Week Message</strong></h6>
+          <a href=""><img src="{% static "images/DSC_0018.JPG" %}" class="img-fluid rounded-start" alt="..."></a>
+          <div class="card-body">
+            <p class="card-text">Following the crucifixion and resurrection of the Lord, life in Holy Land was thrown into a dark turmoil marked by uprisings and violent retaliations, death, suffering, occupations, and invasions. During this period, Christians experienced persecution and they saw pagan temples and shrines rise over the holy sites connected to the life and ministry of the […]</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="">
+          <h6 class="text-center"><strong>Youth Patron's Week Message</strong></h6>
+          <a href=""><img src="{% static "images/DSC_0358.JPG" %}" class="img-fluid rounded-start" alt="..."></a>
+          <div class="card-body">
+            <p class="card-text">“The will of man is an essential condition, for, without it, God does nothing.”    – St. Macarius of Egypt. Vladimir Lossky, The Mystical Theology of the Eastern Church (Crestwood, NY: St. Vladimir’s Seminary Press, 1976), p. 199. In the 19th century, a man named George Wilson was caught and convicted to death for murder. […]</p>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6">
+        <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="">
+          <h6 class="text-center"><strong>Youth Coordinator's Week Message</strong></h6>
+          <a href=""><img src="{% static "images/DSC_0650.JPG" %}" class="img-fluid rounded-start" alt="..."></a>
+          <div class="card-body">
+            <p class="card-text">On March 18, 1990, two men in police uniforms walked into the Isabella Stewart Gardner Museum in Boston and walked away with thirteen artworks worth more than 500 million dollars. This is the biggest art theft in the U.S. The FBI believes with a high degree of confidence that the art was transported and is […]</p>
+          </div>
+        </div>
+      </div>
+    {% comment %} {% endfor %} {% endcomment %}
+  </div>
+    <div class="col s12 m6">
+      <div class="card text-bg-light mb-3" style="max-width: 38rem;">
+        <h5 class="card-header text-center">Mpesa Procedure</h5>
+        <div class="card-body">
+          <a href=""><img src="{% static "images/maxresdefault.jpg" %}" class="img-fluid rounded-start" alt="..."></a>
+        <br></br>
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Pay now</button>
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <div class="modal-header ">
+                  <h5 class="modal-title" id="exampleModalLabel">Mpesa Payment</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form method="POST" >
+                    {% csrf_token %}
+                    <div class="row g-3 align-items-center">
+                      <div class="col-auto">
+                        <label for="name" class="col-form-label">Name :</label>
+                        
+                      </div>
+                      <div class="col-auto">
+                        <input type="text" class="form-control" name="name" required>
+                      </div>
+                    </div>
+                  </br>
+                    <div class="row g-3 align-items-center">
+                      <div class="col-auto">
+                        <label for="number" class="col-form-label">Mobile number :</label>
+                        
+                      </div>
+                      <div class="col-auto">
+                        <input type="text" class="form-control" name="number" required>
+                      </div>
+                    </div>
+                  </br>
+                    <div class="row g-3 align-items-center">
+                      <div class="col-auto">
+                        <label for="number" class="col-form-label">Purpose :</label>
+                      </div>
+                      <div class="col-auto">
+                        <select class="form-select" name="purpose" required>
+                          <option selected disabled value="validationCustom04">Choose...</option>
+                          <option>Tithe</option>
+                          <option>Offering</option>
+                          <option>Thanksgiving</option>
+                        </select>
+                      </div>
+                    </div>
+                    </br>
+                    <div class="row g-3 align-items-center">
+                      <div class="col-auto">
+                        <label for="number" class="col-form-label">Amount :</label>
+                      </div>
+                      <div class="col-auto">
+                        <input type="text" class="form-control" name="amount" required>
+                      </div>
+                    </div>
+                  </br>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                      <button type="submit" class="btn btn-primary">Pay</button>
+                    </div>
+                  </form>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

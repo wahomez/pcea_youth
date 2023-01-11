@@ -1,0 +1,34 @@
+<nav>
+    <div class="nav-wrapper #283593 indigo darken-3">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="/">
+        {% load static %}
+        <img src="{% static "/images/pcea_logo.jpg" %}" alt="Pcea logo" width="60" height="60">
+      </a> PCEA Kitengela Youth Church
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Sermons
+          </a>
+          <ul class=" dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="tuesday-service">Tuesday Service</a></li>
+            <li><a class="dropdown-item" href="sunday-service">Sunday Service</a></li>
+          </ul>
+        </li>
+        <li><a href="activities">Activities</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Groups
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+            <li><a class="dropdown-item" href="families">Families</a></li>
+            <li><a class="dropdown-item" href="teams">Teams</a></li>
+          </ul>
+        </li>
+        <li><a href="about">About</a></li>
+      </ul>
+    </div>
+  </nav>

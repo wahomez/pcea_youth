@@ -1,0 +1,86 @@
+{% extends 'main/header.html' %}
+{% block content%}
+{%load static%}
+{%load bootstrap%}
+<div class='container'>
+    <br>
+    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Filter
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M7 11.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5z"/>
+      </svg>
+    </button><br>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Filter out</h5>
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="get" class='col'>
+                      {{filter.form|bootstrap}}
+                      <br>
+                      <button class="btn btn-primary" type="submit">Search</button>
+                      {% comment %} <button type="submit">Search</button> {% endcomment %}
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+    </br>
+    <div class="row">
+      {%for team in filter.qs%}
+        <div class="col s12 m6">
+          <div class="card text-bg-light mb-3" style="max-width: 18rem;">
+            <h6 class="text-center"><strong>{{team.Name}}</strong></h6>
+            <img src="{% static "images/Family2.jpg" %}" class="img-fluid rounded-start" alt="...">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p class="card-text">{{team.Description}}</p>
+                <footer class="blockquote-footer">Led by <cite title="Source Title">{{team.Head}}</cite></footer>
+              </blockquote>
+              <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">Join</button>
+            </div>
+          </div>
+        </div>
+      {%endfor%}
+    </div>
+</div>
+
+{% comment %} code for the second modal {% endcomment %}
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Joining Form</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Full name" aria-label="Full name" required>
+              </div>
+          </div>
+      <br>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone number" required>
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="District" aria-label="District" required>
+            </div>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-outline-primary">Join</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

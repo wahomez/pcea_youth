@@ -1,0 +1,50 @@
+{% extends 'main/header.html' %}
+{% block content%}
+<br>
+<div class="container">
+    
+    {%if Name %}
+        <center>
+            <h2>Thanks {{Name}}</h2>
+            <p>We have received your appointment successfully. We will get back to you later</p>
+        </center>
+    {%else%}
+        <div class="card text-bg-light">
+            <h5 class="card-header"><center>Scheduling form</center></h5>
+            <div class="card-body">
+                <form method="POST">
+                    {%csrf_token%}
+                    <div class="row">
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Full name" aria-label="Full name" name="name" required>
+                        </div>
+                        <div class="col">
+                        <input type="text" class="form-control" placeholder="Phone number" aria-label="Phone number" name="number" required>
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="District" aria-label="Phone number" name="district" required>
+                        </div>
+                    </div>
+                <br>
+                    <div class="row">
+                        <div class="col">
+                            <label for="inputState" class="form-label">Meeting with</label>
+                            <select name="person" class="form-select" required>
+                                <option selected disabled value>Choose...</option>
+                                <option>Youth Pastor</option>
+                                <option>Parish Minister</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <label for="inputState" class="form-label">Date</label>
+                            <input type="date" class="form-control" placeholder="District" name="date" required>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-outline-primary">Book slot</button>
+                </form>
+            </div>
+        </div>
+    {%endif%}
+</div>
+{% endblock %}
