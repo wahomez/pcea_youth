@@ -8,8 +8,22 @@ from .forms import *
 from django.contrib import messages
 from .mpesa import ac_token
 import requests
+import json
 
 # Create your views here.
+
+
+def daraja_callback(request):
+    #parse json data from the request body
+    data = json.loads(request.body)
+    # you can use the data as you want
+    # for example storing in the database
+    # you can also check the signature sent by daraja
+    # to verify the authenticity of the webhook
+    # and also check the transaction status
+    return HttpResponse("Callback received")
+
+
 def Home(request):
     return render(request, 'main/index.html', {})
 
@@ -60,10 +74,15 @@ def Homepage(request):
         messages.success(request, ("Your payment has been received successfully"))
         return redirect('/')
         
-    
+    context = {
+        'Messages' : Week_Message.objects.filter(),
+        'announcement' : Announcement.objects.all()
+    }
+
+
     return render(request=request,
                   template_name='main/home.html',
-                  context= {'Messages':Week_Message.objects.filter()})
+                  context= context)
 
 def About(request):
     return render(request=request,
@@ -138,7 +157,7 @@ def Teams(request):
 def Tuesday_Service(request):
     sermon = Sermon.objects.filter(Service="Tuesday Service").order_by('-Date')
     sermon_filter = SermonFilter(request.GET, queryset=sermon)
-
+    
     return render(request=request,
                   template_name='main/Tuesday_Service.html',
                   context={'filter': sermon_filter})

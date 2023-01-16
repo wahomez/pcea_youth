@@ -35,11 +35,11 @@
         <div class="col s12 m6">
           <div class="card text-bg-light mb-3" style="max-width: 18rem;">
             <h6 class="text-center"><strong>{{fam.Name}}</strong></h6>
-            <img src="{% static "images/Famiy1.jpg" %}" class="img-fluid rounded-start" alt="...">
+            <img src={{fam.Photo.url }} style="height:350px;" class="img-fluid rounded-start" alt="...">
             <div class="card-body">
               <blockquote class="blockquote mb-0">
                 <p class="card-text">{{fam.Description}}</p>
-                <footer class="blockquote-footer">Led by <cite title="Source Title">{{fam.Head}}</cite></footer>
+                <footer class="blockquote-footer">Led by <cite title="Source Title">{{fam.Leader}}</cite></footer>
               </blockquote>
               <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">Join</button>
             </div>

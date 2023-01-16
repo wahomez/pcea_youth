@@ -7,14 +7,15 @@ SERVICE_SERMONS_CHOICES = [
     ('Sunday Service', 'Sunday Service'),
 ]
 
+
 # Create your models here.
 class Sermon(models.Model):
     Service = models.CharField(max_length=200, choices=SERVICE_SERMONS_CHOICES)
     Preacher = models.CharField(max_length=200)
     Date = models.DateField(default=timezone.now)
-    Poster = models.ImageField(upload_to="photos/%Y/%m/%d", blank="True")
-    Scripture = models.CharField(max_length=2000, default="")
-    Sermon_title = models.CharField(max_length=200, default="")
+    Poster = models.ImageField(upload_to="new", blank=True)
+    Scripture = models.CharField(max_length=2000)
+    Sermon_title = models.CharField(max_length=200)
     Sermon = models.TextField()
 
     def __str__(self):
@@ -22,7 +23,7 @@ class Sermon(models.Model):
 
 class Activity(models.Model):
     Title = models.CharField(max_length=200)
-    Poster = models.ImageField(upload_to="", blank="True")
+    Poster = models.ImageField(upload_to="")
     Date = models.DateField(default=timezone.now)
     Venue = models.CharField(max_length=200, default="")
     Description = models.TextField()
@@ -32,8 +33,8 @@ class Activity(models.Model):
 
 class Family(models.Model):
     Name = models.CharField(max_length=200)
-    Head = models.CharField(max_length=200)
-    Photo = models.ImageField(upload_to="photos/%Y/%m/%d", blank="True")
+    Leader = models.CharField(max_length=200)
+    Photo = models.ImageField(upload_to="new")
     Description = models.TextField()
 
     def __str__(self):
@@ -41,8 +42,8 @@ class Family(models.Model):
 
 class Team(models.Model):
     Name = models.CharField(max_length=200)
-    Head = models.CharField(max_length=200)
-    Photo = models.ImageField(upload_to="photos/%Y/%m/%d", blank="True")
+    Leader = models.CharField(max_length=200)
+    Photo = models.ImageField(upload_to="new")
     Description = models.TextField()
 
     def __str__(self):
@@ -56,6 +57,7 @@ class Week_Message(models.Model):
     ]
     Name = models.CharField(max_length=200, choices=NAME)
     Message = models.TextField()
+    Photo = models.ImageField(upload_to="new")
     Date = models.DateField(default=timezone.now)
 
     def __str__(self):
@@ -88,7 +90,7 @@ class Membership(models.Model):
     Number = models.IntegerField()
     Area = models.CharField(max_length=200)
     District = models.CharField(max_length=200)
-    Confirmed = models.BooleanField(default=True)
+    Confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return self.First_name
@@ -97,9 +99,9 @@ class Booking(models.Model):
     Name = models.CharField(max_length=200)
     Phone_number = models.IntegerField()
     District = models.CharField(max_length=200)
-    Activity = models.ForeignKey(Activity, default=None, on_delete=models.CASCADE)
-    Amount = models.IntegerField(default = "", blank="True")
-    Paid = models.BooleanField(default=False, blank="True")
+    Activity = models.ForeignKey(Activity, on_delete=models.CASCADE)
+    Amount = models.IntegerField(default=0)
+    Paid = models.BooleanField(default=False)
 
     def __str__(self):
         return self.Name
@@ -115,6 +117,16 @@ class Join_Team(models.Model):
     Number = models.CharField(max_length=200)
     District = models.CharField(max_length=200)
     Team = models.ForeignKey(Team, on_delete=models.SET_DEFAULT, default=None)
+
+class Announcement(models.Model):
+     Title = models.CharField(max_length=200)
+     Detail = models.TextField()
+     Poster = models.ImageField(upload_to="new")
+     Date_posted = models.DateTimeField(default=timezone.now)
+
+     def __str__(self):
+        return self.Title
+
 
 
    

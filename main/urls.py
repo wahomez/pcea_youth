@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 app_name = 'main'
 
 urlpatterns = [
-    path('home', Home),
+    path('home', Homepage),
     path('', Homepage),
     path('about', About),
     path('activities', Activities),
@@ -34,6 +34,4 @@ urlpatterns = [
     path('schedule', Schedules),
     
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns += staticfiles_urlpatterns()
+]

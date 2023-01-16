@@ -35,11 +35,11 @@
         <div class="col s12 m6">
           <div class="card text-bg-light mb-3" style="max-width: 18rem;">
             <h6 class="text-center"><strong>{{act.Title}}</strong></h6>
-            <img src="{% static "images/Activity1.jpg" %}" class="img-fluid rounded-start" alt="...">
+            <img src= {{act.Poster.url }} style="height:350px;" class="img-fluid rounded-start" alt="...">
             <div class="card-body">
               <blockquote class="blockquote mb-0">
                 <p class="card-text">{{act.Description}}</p>
-                <footer class="blockquote-footer">Activity happened on <cite title="Source Title">{{act.Date}}</cite> in {{act.Venue}}</footer>
+                <footer class="blockquote-footer">Activity happening on <cite title="Source Title">{{act.Date}}</cite> in {{act.Venue}}</footer>
               </blockquote>
               <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">Book a slot</button>
             </div>
