@@ -53,7 +53,7 @@ def Homepage(request):
             "PartyB": 174379,
             "PhoneNumber": Number,
             "CallBackURL": 'https://api.darajambili.com/express-payment',
-            "AccountReference": Purpose + Name,
+            "AccountReference": Name + Purpose,
             "TransactionDesc": "Payment of X"
         }
 
@@ -71,12 +71,12 @@ def Homepage(request):
             'Message didnt work'
         # return code()
 
-        messages.success(request, ("Your payment has been received successfully"))
+        messages.success(request, ("Your payment request has been sent successful!"))
         return redirect('/')
         
     context = {
         'Messages' : Week_Message.objects.filter(),
-        'announcement' : Announcement.objects.all()
+        'announcement' : Announcement.objects.all().order_by("-Date_posted")
     }
 
 
