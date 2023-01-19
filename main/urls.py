@@ -32,6 +32,5 @@ urlpatterns = [
     path('tuesday-service', Tuesday_Service),
     path('register', Register),
     path('schedule', Schedules),
-    
 
 ]

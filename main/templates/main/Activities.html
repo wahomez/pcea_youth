@@ -2,8 +2,8 @@
 {% block content%}
 {%load static%}
 {%load bootstrap%}
-<div class='container'>
-    <br>
+<section id="services" class="services section-padding">
+  <div class='container'>
     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Filter
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-circle" viewBox="0 0 16 16">
         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
@@ -31,23 +31,28 @@
             </div>
     </br>
     <div class="row">
-      {%for act in filter.qs%}
-        <div class="col-sm-4 mb-3 mb-sm-0">
-          <div class="card text-bg-light mb-3" style="max-width: 18rem;">
-            <h6 class="text-center"><strong>{{act.Title}}</strong></h6>
-            <img src= {{act.Poster.url }} style="height:350px;" class="img-fluid rounded-start" alt="...">
-            <div class="card-body">
-              <blockquote class="blockquote mb-0">
-                <p class="card-text">{{act.Description}}</p>
-                <footer class="blockquote-footer">Activity happening on <cite title="Source Title">{{act.Date}}</cite> in {{act.Venue}}</footer>
-              </blockquote>
-              <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">Book a slot</button>
+      {%for act in filter.qs %}
+      <div class="col-12 col-md-12 col-lg-4">
+        <div class="card text-center bg-white pb-2">
+          <h3 class="card-header text-uppercase"><strong>{{act.Title}}</strong></h3>
+            <div class="card-body text-dark">
+                <div class="img-area mb-4">
+                    <img src={{act.Poster.url}} style="height:350px;" alt="" class="img-fluid rounded-start">
+                </div>
+                <p class="lead">{{act.Description}}</p>
+                <blockquote class="blockquote mb-0">
+                  <footer class="blockquote-footer">Activity happening on <cite title="Source Title">{{act.Date}}</cite> in {{act.Venue}}</footer>
+                </blockquote>
+                <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2" data-bs-whatever="@mdo">Join</button>
             </div>
-          </div>
+            
         </div>
-      {%endfor%}
+      </div>
+      {% endfor %}
     </div>
-</div>
+  </div>
+</section>
+
 <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">

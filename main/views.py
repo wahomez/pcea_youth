@@ -23,7 +23,6 @@ def daraja_callback(request):
     # and also check the transaction status
     return HttpResponse("Callback received")
 
-
 def Home(request):
     return render(request, 'main/index.html', {})
 

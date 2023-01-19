@@ -1,108 +1,165 @@
 {% extends 'main/header.html' %}
-{% block content%}
-{% load static%}
-
-<div id="carouselExampleAutoplaying" class="carousel slide carousel-fade" data-bs-ride="carousel">
+{% block content %}
+{% load static %}
+{% comment %} slider section {% endcomment %}
+<div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
   <div class="carousel-inner">
     {% for ann in announcement %}
       {%if forloop.first %}
         <div class="carousel-item {% if forloop.first %} active {% endif %}">
-          <img src={{ann.Poster.url }} style="height:700px;" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <button type="button" class="btn btn-outline-info">Read More</button>
+          <img src={{ann.Poster.url }} class="d-block w-100" alt="...">
+          <div class="carousel-caption">
+            <h5>welcome to church</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi consequuntur, eos iste eaque veniam esse</p>
+            {% comment %} <p><a href="#" class="btn btn-warning nt-3"> Read More</a></p> {% endcomment %}
+            {% comment %} <button type="button" class="btn btn-outline-info">Read More</button> {% endcomment %}
           </div>
         </div>
       {% else %}
         <div class="carousel-item {% if forloop.first %} {% endif %}">
-          <img src={{ann.Poster.url}} style="height:700px;" class="d-block w-100" alt="...">
-          <div class="carousel-caption d-none d-md-block">
-            <button type="button" class="btn btn-outline-info">Read More</button>
+          <img src={{ann.Poster.url}} class="d-block w-100" alt="...">
+          <div class="carousel-caption">
+            <h5>Your home away from home</h5>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi consequuntur, eos iste eaque veniam esse</p>
+            {% comment %} <p><a href="#" class="btn btn-warning nt-3"> Read More</a></p> {% endcomment %}
           </div>
         </div>
       {% endif %}
-    
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  {% endfor %}
-  </div>
-</div>
-<br>
-<div class="container">
-  <div class="row">
-    <h3 class="text-center"><strong> SERVICES </strong></h3>
-    <div class="col-sm-6 mb-3 mb-sm-0">
-      <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="tuesday-service">
-    
-          <h6 class="text-center"><strong>TUESDAY SERVICE</strong></h6>
-        
-        <a href="/tuesday-service"><img src= "{% static "images/bf6dbc26-7e11-4143-91ef-73160b2d4c5d.jpeg" %}" style="height:350px;" class="img-fluid rounded-start" alt="...">
-        </a>
-      </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="sunday-service">
-    
-          <h6 class="text-center"><strong>SUNDAY SERVICE</strong></h6>
-        
-        <a href="/sunday-service"><img src= "{% static "images/WhatsApp Image 2023-01-17 at 3.08.38 PM.jpeg" %}" style="height:350px;" class="img-fluid rounded-start" alt="...">
-        </a>
-      </div>
-    </div>
-    {% comment %} <div class="col s8 m4">
-      <div class="card mb-3" style="max-width: 18rem;" >
-        <div class="youtube-container rounded">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/zumDjHWM5Qc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div> {% endcomment %}
-  <div class="row">
-    <h3 class="text-center"><strong> WEEKLY MESSAGES </strong></h3>
-    {%for mes in Messages%}
-      <div class="col-sm-4 mb-3 mb-sm-0">
-        <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="">
-          <h6 class="text-center"><strong>{{mes.Name}}</strong></h6>
-          <a href=""><img src={{mes.Photo.url }} style="height:250px;" class="img-fluid rounded-start" alt="..."></a>
-          <div class="card-body">
-            <p class="card-text">{{mes.Message}}</p>
-          </div>
-        </div>
-      </div>
-      {% comment %} <div class="col-sm-4 mb-3 mb-sm-0">
-        <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="">
-          <h6 class="text-center"><strong>Youth</strong></h6>
-          <a href=""><img src="{% static "images/DSC_0358.JPG" %}" class="img-fluid rounded-start" alt="..."></a>
-          <div class="card-body">
-            <p class="card-text">“The will of man is an essential condition, for, without it, God does nothing.”    – St. Macarius of Egypt. Vladimir Lossky, The Mystical Theology of the Eastern Church (Crestwood, NY: St. Vladimir’s Seminary Press, 1976), p. 199. In the 19th century, a man named George Wilson was caught and convicted to death for murder. […]</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-4 mb-3 mb-sm-0">
-        <div class="card text-bg-light mb-3" style="max-width: 18rem;" href="">
-          <h6 class="text-center"><strong>Youth Coordinator</strong></h6>
-          <a href=""><img src="{% static "images/DSC_0650.JPG" %}" class="img-fluid rounded-start" alt="..."></a>
-          <div class="card-body">
-            <p class="card-text">On March 18, 1990, two men in police uniforms walked into the Isabella Stewart Gardner Museum in Boston and walked away with thirteen artworks worth more than 500 million dollars. This is the biggest art theft in the U.S. The FBI believes with a high degree of confidence that the art was transported and is […]</p>
-          </div>
-        </div>
-      </div> {% endcomment %}
     {% endfor %}
-  </div>
+    </div>
+</div>
+{% comment %} end slider {% endcomment %}    
 
-  <h3 class="text-center"><strong> MPESA PROCEDURE </strong></h3>
-    <div class="col s12 m6">
-      <div class="card text-bg-light mb-3" style="max-width: 38rem;">
-        {% comment %} <h5 class="card-header text-center">Mpesa Procedure</h5> {% endcomment %}
-        <div class="card-body">
-          <a href=""><img src="{% static "images/maxresdefault.jpg" %}" class="img-fluid rounded-start" alt="..."></a>
-        <br></br>
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Pay now</button>
+{% comment %} about section {% endcomment %}
+<section id="about" class="about section-padding" data-bs-spy="scroll" data-bs-target="#navbar">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-4 col-md-12 col-12">
+              <div class="about-img">
+                  <img src={% static "images/Family3.jpg"%} alt="" class="img-fluid">
+              </div>
+          </div>
+          <div class="col-lg-8 col-md-12 col-12 ps-lg-5 mt-md-5">
+              <div class="about-text">
+                  <h2>We Provide Best Quality <br> Services Ever </h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Bibendum at varius vel pharetra vel turpis nunc eget lorem. Felis bibendum ut tristique et egestas quis ipsum suspendisse. Augue eget arcu dictum varius duis at consectetur lorem donec. Vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere.</p>
+                  <a href="#" class="btn btn-warning">Learn More</a>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<br></br>
+{% comment %} end about {% endcomment %}
+
+{% comment %} sermon section {% endcomment %}
+<section id="services" class="services section-padding">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="section-header text-center pb-5">
+                  <h2>Weekly Messages</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing <br> elit. Vitae et illo sed adipisci unde in!</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        {%for mes in Messages%}
+          <div class="col-12 col-md-12 col-lg-4">
+            <div class="card text-white text-center bg-dark pb-2">
+                <div class="card-body">
+                    <i class="bi bi-subtract"></i>
+                    <h3 class="card-title">{{mes.Name}}</h3>
+                    <p class="lead">{{mes.Message}}</p>
+                    {% comment %} <button class="btn btn-warning text-dark">Read More</button> {% endcomment %}
+                </div>
+            </div>
+          </div>
+        {% endfor %}
+          
+      </div>
+  </div>
+</section>
+<br></br>
+{% comment %} end sermons {% endcomment %}
+
+{% comment %} service section {% endcomment %}
+<section id="services" class="services section-padding">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="section-header text-center pb-5">
+                  <h2>Our Services</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing <br> elit. Vitae et illo sed adipisci unde in!</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-6">
+          <div class="card text-center bg-white pb-2 ">
+            <h3 class="card-header"><strong>TUESDAY SERVICE</strong></h3>
+              <div class="card-body text-dark">
+                  <div class="img-area mb-4">
+                      <img src={% static "images/bf6dbc26-7e11-4143-91ef-73160b2d4c5d.jpeg"%} style="height:350px;" alt="" class="img-fluid">
+                  </div>
+                  <button class="btn btn-warning text-dark">Learn More</button>
+              </div>
+          </div>
+        </div>  
+        <div class="col-12 col-md-12 col-lg-6">
+          <div class="card text-center bg-white pb-2">
+            <h3 class="card-header"><strong>SUNDAY SERVICE</strong></h3>
+              <div class="card-body text-dark">
+                  <div class="img-area mb-4">
+                      <img src="{% static "images/WhatsApp Image 2023-01-17 at 3.08.38 PM.jpeg" %}" style="height:350px;" alt="" class="img-fluid">
+                  </div>
+                  <button class="btn btn-warning text-dark">Learn More</button>
+              </div>
+              
+          </div>
+        </div>  
+      </div>
+  </div>
+</section>
+<br></br>
+{% comment %} end service {% endcomment %}
+
+<!-- mpesa section-->
+<section id="services" class="services section-padding">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="section-header text-center pb-5">
+                  <h2>Mpesa Procedure</h2>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing <br> elit. Vitae et illo sed adipisci unde in!</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="row"> 
+        <div class="col-12 col-md-12 col-lg-8 mx-auto">
+          <div class="card text-center bg-white pb-2">
+              <div class="card-body text-dark">
+                  <div class="img-area mb-4">
+                      <img src="{% static "images/maxresdefault.jpg" %}" alt="" class="img-fluid rounded-start">
+                  </div>
+                  <button class="btn btn-warning text-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Pay now</button>
+              </div>
+              
+          </div>
+        </div>  
+      </div>
+  </div>
+</section>
+
+<!-- end mpesa-->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
               <div class="modal-content">

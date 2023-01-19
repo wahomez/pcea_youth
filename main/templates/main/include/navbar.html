@@ -1,34 +1,48 @@
-<nav>
-    <div class="nav-wrapper #283593 indigo darken-3">
-      <div class="container-fluid">
-          <a class="navbar-brand" href="/">
-        {% load static %}
-        <img src="{% static "/images/pcea_logo.jpg" %}" alt="Pcea logo" width="60" height="60">
-      </a> PCEA Kitengela Youth Church
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
+{%load static%}
+<nav class="navbar navbar-light navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      {% comment %} <img src={%static "/images/pcea_logo.jpg"%} alt="Bootstrap" width="30" height="30" class="rounded"> {% endcomment %}
+      <span class="text-warning">PCEA Kitengela Youth</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Sermons
-          </a>
-          <ul class=" dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="tuesday-service">Tuesday Service</a></li>
-            <li><a class="dropdown-item" href="sunday-service">Sunday Service</a></li>
+          <a class="nav-link dropdown-toggle" class="btn btn-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Sermons</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/tuesday-service">Tuesday</a></li>
+            <li><a class="dropdown-item" href="/sunday-service">Sunday</a></li>
           </ul>
         </li>
-        <li><a href="activities">Activities</a></li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Groups
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-            <li><a class="dropdown-item" href="families">Families</a></li>
-            <li><a class="dropdown-item" href="teams">Teams</a></li>
+          <a class="nav-link dropdown-toggle" class="btn btn-secondary dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" >Groups</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/families">Families</a></li>
+            <li><a class="dropdown-item" href="/teams">Teams</a></li>
           </ul>
         </li>
-        <li><a href="about">About</a></li>
+        <li class="nav-item">
+          <a class="nav-link" href="/activities">Events</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li> 
       </ul>
     </div>
-  </nav>
+  </div>
+  <!-- <script>
+      const navEl = document.querySelector('.navbar');
+      window.addEventListener('scroll', () => {
+          if(window.scrollY <= 300){
+              navEl.classList.remove('bg-body-tertiary');
+              navEl.classList.add('navbar-unscrolled')
+          }
+          else if (window.scrollY >300){
+              navEl.classList.add('bg-body-tertiary')
+          }
+      })
+  </script> -->
+</nav>
