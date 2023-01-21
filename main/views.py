@@ -48,9 +48,9 @@ def Homepage(request):
             "Timestamp": "20230109125655",
             "TransactionType": "CustomerPayBillOnline",
             "Amount": Amount,
-            "PartyA": Number,
+            "PartyA": "254" + Number,
             "PartyB": 174379,
-            "PhoneNumber": Number,
+            "PhoneNumber": "254" + Number,
             "CallBackURL": 'https://api.darajambili.com/express-payment',
             "AccountReference": Name + Purpose,
             "TransactionDesc": "Payment of X"
